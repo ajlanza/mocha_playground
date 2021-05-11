@@ -1,4 +1,4 @@
-const divide = require('../index');
+const { divide } = require('../index');
 const chai = require('chai');
 const expect = chai.expect;
 
@@ -22,5 +22,33 @@ describe('Divide function', () => {
       divide(a,b)
     };
     expect(fn).to.throw();
+  });
+
+  it('number equals number', () => {
+    expect(2).to.equal(2, '2 === 2'); 
+  });
+
+  it('number equals string', () => { 
+    expect(2).to.equal("2", '2 === "2"');
+  });
+
+  it('number equals wrong number', () => {
+    expect(2).to.equal(3, '2 === 3');
+  });
+
+  it('string equals wrong string', () => {
+    expect('hen').to.equal('Hen', "'hen' === 'Hen'");
+  });
+  
+  it('check an object without deep', () => {
+    const a = { x: 5};
+    const b = { x: 5};
+    expect(a).to.equal(b, 'without deep');
+  });
+
+  it('check an object with deep', () => {
+    const a = { x: 5};
+    const b = { x: 5 };
+    expect(a).to.deep.equal(b);
   });
 });
